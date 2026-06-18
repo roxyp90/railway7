@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Usuario;
+use App\Models\User;
 
 class LibroFactory extends Factory
 {
@@ -16,7 +16,7 @@ class LibroFactory extends Factory
             'anio' => $this->faker->year(),
             'estado' => 'disponible',
             'imagen' => 'uploads/libros/descargar.jpeg',
-            'registrado_por' => Usuario::inRandomOrder()->first()->id ?? 1,
+            'registrado_por' => User::inRandomOrder()->first()->id ?? User::factory(),
         ];
     }
 }

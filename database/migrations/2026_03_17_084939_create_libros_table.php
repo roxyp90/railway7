@@ -17,7 +17,7 @@ class CreateLibrosTable extends Migration
             $table->year('anio');
             $table->string('estado');
             $table->string('imagen')->nullable();
-            $table->foreignId('registrado_por')->constrained('usuarios')->onDelete('cascade');
+            $table->foreignId('registrado_por')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
