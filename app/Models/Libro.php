@@ -38,9 +38,9 @@ class Libro extends Model
         return $this->hasMany(Ejemplar::class, 'libro_id');
     }
 
-    // La relación con el usuario que registró el libro.
+    // CORREGIDO: Ahora apunta a User (Administradores reales de la tabla 'users')
     public function registrador(): BelongsTo
     {
-        return $this->belongsTo(Usuario::class, 'registrado_por');
+        return $this->belongsTo(User::class, 'registrado_por');
     }
 }

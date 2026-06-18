@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LibroRequest;
 use App\Models\Libro;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -37,7 +37,7 @@ class LibroController extends Controller
      */
     public function create(): View
     {
-        $registradores = Usuario::query()->where('estado', 'activo')->orderBy('nombre')->get();
+        $registradores = User::query()->where('activo', true)->orderBy('name')->get();
 
         return view('libros.create', compact('registradores'));
     }
@@ -75,7 +75,7 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro): View
     {
-        $registradores = Usuario::query()->where('estado', 'activo')->orderBy('nombre')->get();
+        $registradores = User::query()->where('activo', true)->orderBy('name')->get();
 
         return view('libros.edit', compact('libro', 'registradores'));
     }
